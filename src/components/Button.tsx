@@ -1,9 +1,9 @@
 type ButtonProps = {
-    text: string
+    text?: string
 }
 
 export function Button(prop: ButtonProps) {
     return (
-        <button>{prop.text}</button>
+        <button>{prop.text || "Valor padrão"}</button>
     )
 }

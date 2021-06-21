@@ -2,7 +2,10 @@ import { Button } from './components/Button'
 
 function App() {
   return (
-    <Button text="Clique"></Button>
+    <div>
+      <Button text="Clique"></Button>
+      <Button></Button>
+    </div>
   );
 }
 
