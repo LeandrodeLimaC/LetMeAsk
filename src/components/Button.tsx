@@ -1,5 +1,9 @@
-export function Button() {
+type ButtonProps = {
+    text: string
+}
+
+export function Button(prop: ButtonProps) {
     return (
-        <button>Clique Aqui</button>
+        <button>{prop.text}</button>
     )
 }
