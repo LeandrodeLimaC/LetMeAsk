@@ -1,6 +1,7 @@
+import { Link } from 'react-router-dom'
+
 import illustrationSvg from '../assets/images/illustration.svg';
 import logoSvg from '../assets/images/logo.svg';
-import googleIconSvg from '../assets/images/google-icon.svg';
 
 import '../styles/auth.scss';
 
@@ -27,7 +28,7 @@ export function NewRoom() {
                             Criar na sala
                         </Button>
                     </form>
-                    <p>Quer entrar em uma sala existente? <a href="#">clique aqui</a></p>
+                    <p>Quer entrar em uma sala existente? <Link to="/">clique aqui</Link></p>
                 </div>
             </main>
         </div>
