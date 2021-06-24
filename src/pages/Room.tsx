@@ -68,7 +68,14 @@ export function Room() {
           />
 
           <div className="form-footer">
-            <span>Para enviar uma pergunta, <button>faça o seu login</button>.</span>
+            {user ? (
+              <div className="user-info">
+                <img draggable="false" src={user.photo} alt={user.name} />
+                <span>{user.name}</span>
+              </div>
+            ) : (
+              <span>Para enviar uma pergunta, <button>faça o seu login</button>.</span>
+            )}
             <Button type="submit" disabled={!user}>Enviar pergunta</Button>
           </div>
         </form>
