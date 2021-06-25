@@ -24,6 +24,8 @@ type QuestionType = {
   content: string;
   isAnswered: boolean;
   isHighLighted: boolean;
+  likeCount: number;
+  hasLiked: boolean;
 }
 
 export function useRoom(roomId: string) {
