@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import logoSvg from '../assets/images/logo.svg';
 
 import { Button } from '../components/Button';
+import { Question } from '../components/Question';
 import { RoomCode } from '../components/RoomCode';
 
 import { useAuth } from '../hooks/useAuth';
@@ -21,7 +22,7 @@ type FirebaseQuestions = Record<string, {
   isHighLighted: boolean;
 }>
 
-type Question = {
+type QuestionType = {
   id: string,
   author: {
     name: string;
@@ -40,7 +41,7 @@ export function Room() {
   const { user } = useAuth()
   const params = useParams<RoomParams>();
   const [newQuestion, setNewQuestion] = useState('');
-  const [questions, setQuestions] = useState<Question[]>([]);
+  const [questions, setQuestions] = useState<QuestionType[]>([]);
   const [title, setTitle] = useState('');
 
   const roomId = params.id
@@ -48,7 +49,7 @@ export function Room() {
   useEffect(() => {
     const roomRef = database.ref(`rooms/${roomId}`);
 
-    roomRef.once('value', room => {
+    roomRef.on('value', room => {
       const databaseRoom = room.val();
       const firebaseQuestions: FirebaseQuestions = databaseRoom.questions;
 
@@ -127,7 +128,18 @@ export function Room() {
             <Button type="submit" disabled={!user}>Enviar pergunta</Button>
           </div>
         </form>
-        {JSON.stringify(questions)}
+
+        <div className="question-list">
+          {questions.map(question => {
+            return (
+              <Question
+                key={question.id}
+                content={question.content}
+                author={question.author}
+              />
+            )
+          })}
+        </div>
       </main>
     </div>
   )
