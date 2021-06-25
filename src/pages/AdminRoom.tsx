@@ -1,4 +1,3 @@
-import { FormEvent, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
 import logoSvg from '../assets/images/logo.svg';
@@ -16,7 +15,6 @@ type RoomParams = {
 }
 
 export function AdminRoom() {
-  // const { user } = useAuth()
   const params = useParams<RoomParams>();
   const roomId = params.id
   const { questions, title } = useRoom(roomId)
