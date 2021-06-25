@@ -23,7 +23,7 @@ export function AdminRoom() {
 
   async function handleRemoveQuestion(questionId: string) {
     if (window.confirm('Tem certeza que deseja excluir essa pergunta?')) {
-      const questionRef = await database.ref(`rooms/${roomId}/questions/${questionId}`).remove()
+      await database.ref(`rooms/${roomId}/questions/${questionId}`).remove()
     }
   }
 
