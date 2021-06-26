@@ -13,7 +13,7 @@ import './styles/global.scss'
 function App() {
   return (
     <BrowserRouter>
-      <div><Toaster position="bottom-center" /></div>
+      <Toaster position="bottom-center" />
       <AuthContextProvider>
         <Switch>
           <Route path="/" exact component={Home} />
