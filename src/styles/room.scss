@@ -37,6 +37,7 @@
       h1 {
         font-family: "Poppins", sans-serif;
         font-size: 24px;
+        font-weight: 800;
         color: #29292e;
       }
 
@@ -107,6 +108,39 @@
 
     .question-list {
       margin-top: 32px;
+
+      .question-list-empty {
+        padding: 32px;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        gap: 16px;
+
+        img {
+          width: 150px;
+        }
+
+        .list-empty__description {
+          display: flex;
+          flex-flow: column;
+          text-align: center;
+
+          h3 {
+            font-family: "Poppins", sans-serif;
+            font-size: 24px;
+            font-weight: 600;
+            color: #29292e;
+          }
+
+          span {
+            padding-top: 8px;
+            font-family: "Roboto", sans-serif;
+            line-height: 21px;
+            font-size: 16px;
+            color: #737380;
+          }
+        }
+      }
     }
   }
 }
