@@ -1,46 +1,80 @@
-# Getting Started with Create React App
+<h1 align="center">
+    <img alt="Let Me Ask Logo" src="https://github.com/LeandrodeLimaC/LetMeAsk/blob/main/src/assets/images/logo.svg" width="50%" />
+</h1>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<p align="center">"Toda pergunta tem uma resposta. Aprenda e compartilhe conhecimento
+com outras pessoas"</p>
+---
 
-## Available Scripts
+<h1 align="center">
+    <img alt="Let Me Ask Aplicativo Desktop" src="https://github.com/LeandrodeLimaC/LetMeAsk/tree/main/public/Capa.png" width="100%" />
+</h1>
 
-In the project directory, you can run:
+### Requisitos
 
-### `npm start`
+Para executar o projeto, será necessário instalar:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+1. [Nodejs 12.x](https://nodejs.org/en/)
+---
+### Construido com
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- [Firebase](https://nextjs.org/)
+- [ReactJS](https://reactjs.org/)
+- [Typescript](https://www.typescriptlang.org/) 
+---
 
-### `npm test`
+## Começando
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Para iniciar o desenvolvimento, é necessário clonar o projeto do GitHub num diretório de sua preferência:
 
-### `npm run build`
+```shell
+git clone https://github.com/LeandrodeLimaC/LetMeAsk.git
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Navegue até a pasta criada e execute o seguinte comando para instalar as dependências do projeto
+```
+npm install
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Por fim, inicie o servidor de desenvolvimento através do seguinte comando
+```
+npm run serve
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Estrutura de pastas
+---
 
-### `npm run eject`
+Organização do aplicativo para facil e rápida compreensão.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+```
++-- public         
+|   -- index.html               
+|
++-- src
+|   +-- assets
+|   |   +-- images            // Todas as ilustrações utilizadas no sistema             
+|   |
+|   +-- components            // Componentes do sistema, separados em pastar com seu index e styles
+|   |
+|   +-- contexts
+|   |   +-- AuthContext.ts    // Context utilizado para toda parte de authentication da aplicação
+|   |
+|   +-- hooks                 
+|   |   +-- useAuth.ts        // Hook criado para facilitar importação do useContext e authContext
+|   |   +-- useRoom.ts        // Hook de todo gerenciamento das informações das salas
+|   |
+|   +-- pages   
+|   |   +-- AdminRoom.tsx     // Página com controles de administrador e visualização sobre as perguntas da sala
+|   |   +-- Home.tsx          // Página de entrada da aplicação
+|   |   +-- NewRoom.tsx       // Página de criação de nova sala, apenas para usuarios logados
+|   |   +-- Room.tsx          // Página de envio e de visualização de perguntas
+|   |
+|   +-- services              
+|   |   +-- firebase.ts       // Arquivo responsável pela importação e configuração do Firebase
+|   |
+|   +-- styles                // Estilos globais ou compartilhados da aplicação      
+|   |
+|   +-- App.tsx
+|   +-- index.tsx 
+|   +-- react-app-env.d.ts
+```
