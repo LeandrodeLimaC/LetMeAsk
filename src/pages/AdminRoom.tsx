@@ -4,6 +4,7 @@ import logoSvg from '../assets/images/logo.svg';
 import deleteSvg from '../assets/images/delete.svg';
 import checkSvg from '../assets/images/check.svg';
 import answerSvg from '../assets/images/answer.svg';
+import emptyQuestionsSvg from '../assets/images/empty-questions.svg';
 
 import { Button } from '../components/Button';
 import { Question } from '../components/Question';
@@ -70,42 +71,55 @@ export function AdminRoom() {
         </div>
 
         <div className="question-list">
-          {questions.map(question => {
-            return (
-              <Question
-                key={question.id}
-                content={question.content}
-                author={question.author}
-                isAnswered={question.isAnswered}
-                isHighLighted={question.isHighLighted}
-              >
-                {!question.isAnswered && (
-                  <>
+          {questions.length > 0 ? (
+            <>
+              {questions.map(question => {
+                return (
+                  <Question
+                    key={question.id}
+                    content={question.content}
+                    author={question.author}
+                    isAnswered={question.isAnswered}
+                    isHighLighted={question.isHighLighted}
+                  >
+                    {!question.isAnswered && (
+                      <>
+                        <button
+                          type="button"
+                          onClick={() => handleCheckQuestionAsAnswered(question.id)}
+                        >
+                          <img src={checkSvg} alt="Marcar pergunta como respondida" />
+                        </button>
+
+                        <button
+                          type="button"
+                          onClick={() => handleHighlightQuestion(question.id)}
+                        >
+                          <img src={answerSvg} alt="Dar destaque à pergunta" />
+                        </button>
+                      </>
+                    )}
                     <button
                       type="button"
-                      onClick={() => handleCheckQuestionAsAnswered(question.id)}
+                      onClick={() => handleDeleteQuestion(question.id)}
                     >
-                      <img src={checkSvg} alt="Marcar pergunta como respondida" />
+                      <img src={deleteSvg} alt="Remover pergunta" />
                     </button>
 
-                    <button
-                      type="button"
-                      onClick={() => handleHighlightQuestion(question.id)}
-                    >
-                      <img src={answerSvg} alt="Dar destaque à pergunta" />
-                    </button>
-                  </>
-                )}
-                <button
-                  type="button"
-                  onClick={() => handleDeleteQuestion(question.id)}
-                >
-                  <img src={deleteSvg} alt="Remover pergunta" />
-                </button>
+                  </Question>
+                )
+              })}
+            </>
+          ) : (
+            <div className="question-list-empty">
+              <img src={emptyQuestionsSvg} draggable="false" alt="Ilustração que representa lista de perguntas vazia" />
+              <div className="list-empty__description">
+                <h3>Nenhuma pergunta por aqui...</h3>
+                <span>Envie o código desta sala para seus amigos e comece <br /> a responder perguntas!</span>
+              </div>
+            </div>
+          )}
 
-              </Question>
-            )
-          })}
         </div>
       </main>
     </div>
