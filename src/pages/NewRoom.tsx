@@ -10,6 +10,7 @@ import '../styles/auth.scss';
 import { Button } from '../components/Button';
 import { database } from '../services/firebase';
 import { useAuth } from '../hooks/useAuth'
+import toast from 'react-hot-toast';
 
 export function NewRoom() {
   const history = useHistory()
@@ -20,7 +21,7 @@ export function NewRoom() {
     event.preventDefault();
 
     if (newRoom.trim() === '') {
-      return
+      return toast.error('A Sala precisa de um nome')
     }
 
     const roomRef = database.ref('rooms')
@@ -30,6 +31,7 @@ export function NewRoom() {
       authorId: user?.id
     })
 
+    toast.success(`Bem vindo a sua sala ${newRoom}`)
     history.push(`/admin/rooms/${firebaseRoom.key}`)
   }
 

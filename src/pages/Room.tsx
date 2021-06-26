@@ -13,6 +13,7 @@ import { useRoom } from '../hooks/useRoom';
 import { database } from '../services/firebase';
 
 import '../styles/room.scss'
+import toast from 'react-hot-toast';
 
 type RoomParams = {
   id: string,
@@ -31,7 +32,7 @@ export function Room() {
     if (!newQuestion.trim()) return;
 
     if (!user) {
-      throw new Error('You must be logged in');
+      return toast.error('Você deve entrar com sua conta primeiro')
     }
 
     const question = {

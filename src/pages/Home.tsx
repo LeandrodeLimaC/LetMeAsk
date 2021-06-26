@@ -11,6 +11,7 @@ import '../styles/auth.scss';
 
 import { Button } from '../components/Button';
 import { useAuth } from '../hooks/useAuth';
+import toast from 'react-hot-toast';
 
 export function Home() {
   const history = useHistory()
@@ -28,17 +29,17 @@ export function Home() {
   async function handleJoinRoom(event: FormEvent) {
     event.preventDefault()
 
-    if (!roomCode.trim()) return
+    if (!roomCode.trim()) return toast.error('Insira um código para entrar.')
 
     const roomRef = await database.ref(`rooms/${roomCode}`).get()
 
     if (!roomRef.exists()) {
-      alert('Room does not exists.')
+      toast.error('Desculpe, mas esta sala não existe.')
       return;
     }
 
     if (roomRef.val().closedAt) {
-      alert('Room already closed')
+      toast.error('Esta sala já foi encessada')
       return;
     }
 
