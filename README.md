@@ -59,7 +59,7 @@ npm run serve
     - [x] Toasts
     - [ ] Dark mode
     - [ ] Responsividade
-    - [ ] Modais
+    - [x] Modais
 - [ ] Versão PWA
 - [ ] Styled Components
 - [ ] Eslint Prettier
